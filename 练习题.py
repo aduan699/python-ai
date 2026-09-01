@@ -18,9 +18,7 @@
 # for i in range(1,n+1):
 #     dic[i] = i*i
 # print(dic)
-def study():
-    print('晚上在学习',end = '')
-    def course():
-        print('python基础')
-    course()
-study()
+li = [1,2,3]
+func = lambda a : a*5
+mp = map(func,li)
+print(mp)
