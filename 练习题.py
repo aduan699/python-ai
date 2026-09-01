@@ -18,7 +18,9 @@
 # for i in range(1,n+1):
 #     dic[i] = i*i
 # print(dic)
-li = [1,2,3,4,5]
-print(id(li))
-li.append(6)
-print(li,id(li))
+def study():
+    print('晚上在学习',end = '')
+    def course():
+        print('python基础')
+    course()
+study()
