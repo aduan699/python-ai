@@ -18,5 +18,8 @@
 # for i in range(1,n+1):
 #     dic[i] = i*i
 # print(dic)
-st = "我的心啊，你的心啊"
-print(st.replace("心","肝",2))
+dic = {'name':'wen','age':20}
+dic['score'] = 100
+print(dic)
+pop('age')
+print(dic)
