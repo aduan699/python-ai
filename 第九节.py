@@ -82,3 +82,17 @@
 # pe.introduce()
 # pe2 = person('atuan',30,173)
 # pe2.introduce()
+
+# 3：析构函数__del__()
+# 删除对象的时候，解释器会默认调用__del__()方法
+# class person:
+#     def __init__(self):
+#         print('这里是__init__')
+#     def __del__(self):
+#         print('被销毁了')
+# pe = person()
+# del pe             #删除p这个对象
+# del pe语句执行的时候，内存会被立刻回收，会调用对象本身的__del__()方法
+# print('这是最后一行代码')
+# 正常运行时，系统不会调用__del__，对象执行结束后，代码会自动调用__del__
+# __del__()主要表示该程序块或者函数已经全部执行结束

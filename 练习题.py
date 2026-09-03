@@ -18,7 +18,15 @@
 # for i in range(1,n+1):
 #     dic[i] = i*i
 # print(dic)
-li = [1,2,3]
-func = lambda a : a*5
-mp = map(func,li)
-print(mp)
+class person():
+    def __init__(self,name,age,height):
+        self.name = name
+        self.age = age
+        self.height = height
+    def play(self):
+        print(f'{self.name}正在玩王者荣耀')
+    def introduce(self):
+        print(f'{self.name}的年纪是{self.age},身高是{self.height}')
+pe = person('duan',20,180)
+pe.play()
+pe.introduce()
