@@ -153,3 +153,22 @@
 # ***1：需要读取/修改实例属性（self.xxx）时使用实例方法
 #    2：需要读取/修改类属性时使用类方法
 #    3：既不用实例数据，也不用类数据时使用静态方法
+# class person(object):
+#     name = 'wen'             #类属性
+#     def __init__(self):
+#         self.age = 20        #实例属性
+#     # def play(self):
+#     #     print(f'{person.name}正在玩游戏')
+#     #     print(self.age)
+#     # @staticmethod
+#     # def introduce():
+#     #     print(f'我的名字是{person.name}')
+#     #     print(self.age)
+#     @classmethod
+#     def introduce(cls):
+#         print(f'我的名字是{person.name}')
+#         print(self.age)
+# pe = person()
+# # pe.play()
+# pe.introduce()
+# 总结：类属性是公有的，三种方法都可以访问到，实例属性是私有的，只有实例方法能访问到
