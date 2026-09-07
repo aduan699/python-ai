@@ -74,12 +74,54 @@
 # offset:偏移量，表示文件指针要移动的字节数
 # whence:起始位置，表示要移动字节的参考位置，默认是0，0代表文件的开头位置，1代表当前位置，2代表文件结尾位置
 # seek(0,0)就会把文件指针移到文件开头
-f = open('test.txt','w+')
-f.write('hello python!')
-pos = f.tell()
-print('文件指针当前位置：',pos)
-f.seek(0,0)
-pos2 = f.tell()
-print('移动后文件指针所在位置：',pos2)
-print(f.read())
-f.close()
+# f = open('test.txt','w+')
+# f.write('hello python!')
+# pos = f.tell()
+# print('文件指针当前位置：',pos)
+# f.seek(0,0)
+# pos2 = f.tell()
+# print('移动后文件指针所在位置：',pos2)
+# print(f.read())
+# f.close()
+
+# 3.1：with open
+# 作用：代码执行完，系统会自动调用f.close()，可以省略文件关闭步骤
+# with open('test.txt','w') as f:
+#     f.write('emmmm')
+#     print(f.closed)
+# print(f.closed)
+# with open('test.txt','w',encoding = 'utf-8') as f:
+#     f.write('人家刚满十八岁')
+# with open('test.txt',encoding = 'utf-8') as f:
+#     print(f.read())
+
+# 案例：图片复制  'rb'
+"""
+1.读取图片
+图片是一个二进制文件，想要写入必须先拿到
+2.写入图片
+"""
+# 读取图片
+# with open('图片.jpg','rb') as file:
+#     img = file.read()
+#     print(img)
+# 将读取到的内容写入到当前文件中
+# with open('图片2.jpg','wb') as f:
+#     f.write(img)
+
+# 导入模块
+# import os
+# 1：文件重命名 os.rename(旧名字,新名字)
+# os.rename('test01.txt','wen.txt')
+# 2：删除文件 os.remove()
+# os.remove('wen.txt')
+# os.remove('图片2.jpg')
+# 3：创建文件夹 os.mkdir()
+# os.mkdir('wen')
+# 4：删除文件夹 os.rmdir()
+# os.rmdir('wen')
+# 5：获取当前目录 os.getcwd()
+# print(os.getcwd())
+# 6：获取目录列表
+# print(os.listdir())     *获取当前目录列表
+# print(os.listdir('../'))
