@@ -13,6 +13,7 @@
 # class girl(person):
 #     pass                   #***占位符，不写这个的话会缩进报错
 # gi = girl()
+# gi.eat()
 # 总结：子类可以继承父类的属性和方法，就算自己没有，也可以使用父类的
 
 # 1.3：继承的传递（多重继承）
@@ -134,7 +135,7 @@
 #     @staticmethod
 #     def study(name):
 #         print(f'{name}会学习')
-# # 静态方法既可以用类调用，也可以用对象调用
+# 静态方法既可以用类名调用，也可以用对象名调用
 # person.study('wen')
 # pe = person()
 # pe.study('wen')

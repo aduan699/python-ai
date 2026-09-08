@@ -90,7 +90,10 @@
 #         print('这里是__init__')
 #     def __del__(self):
 #         print('被销毁了')
-# pe = person()
+# pe = person() 删除对象的时候，解释器会默认调用__del__()方法
+# class person:
+#     def __init__(self):
+#
 # del pe             #删除p这个对象
 # del pe语句执行的时候，内存会被立刻回收，会调用对象本身的__del__()方法
 # print('这是最后一行代码')

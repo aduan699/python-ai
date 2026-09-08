@@ -109,6 +109,7 @@
 # with open('图片2.jpg','wb') as f:
 #     f.write(img)
 
+# 4：目录常用操作
 # 导入模块
 # import os
 # 1：文件重命名 os.rename(旧名字,新名字)
@@ -122,6 +123,6 @@
 # os.rmdir('wen')
 # 5：获取当前目录 os.getcwd()
 # print(os.getcwd())
-# 6：获取目录列表
-# print(os.listdir())     *获取当前目录列表
-# print(os.listdir('../'))
+# 6：获取目录列表   os.listdir()
+# print(os.listdir())            *获取当前目录列表
+# print(os.listdir('../'))       *获取上一级目录列表
