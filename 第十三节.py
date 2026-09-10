@@ -27,7 +27,7 @@
 # li2 = iter(li)
 # li2 = li.__iter__()
 # print(li2)
-# 获取吓一跳数据
+# 获取下一条数据
 # print(next(li2))
 # print(next(li2))
 # print(next(li2))

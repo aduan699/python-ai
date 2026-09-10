@@ -6,7 +6,7 @@
 # class test(object):
 #     def __init__(self):
 #         print('这里是__init__')
-#     def __new__(cls):
+#     def __new__(cls,*args,**kwargs):
 #         print('这里是__new__')
 #         print(cls)
 #         return super().__new__(cls)
@@ -17,6 +17,7 @@
 # 一个对象实例化的过程：
 #     首先执行__new__()，如果没有写__new__()默认调用object里面自带的__new__()
 #     返回一个实例对象，然后再调用__init__()，对对象进行初始化
+# *********使用__new__()方法时要renturn super().__new__(cls)
 # class person(object):
 #     def __new__(cls,*args,**kwargs):
 #         print("这是new方法")
