@@ -45,3 +45,25 @@ from multiprocessing import Process,Queue
 #     p1.join()
 #     p2.start()
 #     p2.join()
+
+# 第五题
+# def getSpring():
+#     global t1
+#     t1 = str(input('请输入：'))
+# def printSpring():
+#     global t2
+#     t2 = t1.upper()
+#     print('大写的字符串是：',t2)
+# # if __name__ == '__main__':
+# #     x1 = threading.Thread(target = getSpring)
+# #     x2 = threading.Thread(target = printSpring)
+# #     x1.start()
+# #     x1.join()
+# #     x2.start()
+# #     x2.join()
+# def test():
+#     getSpring()
+#     printSpring()
+# test()
+
+# 第六题
