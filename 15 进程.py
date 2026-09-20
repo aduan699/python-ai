@@ -135,3 +135,78 @@ import time
 #     p1.join()
 #     p2.start()
 #     p2.join()
+
+# 练习题
+# 1：基础创建进程
+# def work1():
+#     print(f'当前子进程pid:{os.getpid()},父进程pid:{os.getppid()}')
+#     print('任务一正在执行')
+#     time.sleep(2)
+# def work2():
+#     print(f'当前子进程pid:{os.getpid()},父进程pid:{os.getppid()}')
+#     print('任务二正在执行')
+#     time.sleep(2)
+# if __name__ == '__main__':
+#     p1 = Process(target = work1)
+#     p2 = Process(target = work2)
+#     p1.start()
+#     p2.start()
+#     p1.join()
+#     p2.join()
+#     print(p1.pid)
+#     print(p2.pid)
+#     print(f'主进程的pid:{os.getpid()}')
+#     print(p1.is_alive())
+#     print(p2.is_alive())
+# 2：args元组传参
+# def show_info(name):
+#     print(f'我的名字是{name}')
+# if __name__ == '__main__':
+#     p1 = Process(target = show_info,args = ('小明',))
+#     p2 = Process(target = show_info,args = ('小红',))
+#     p1.start()
+#     p2.start()
+#     p1.join()
+#     p2.join()
+# 3：验证进程之间不共享全局变量
+# num = 0
+# def change_num():
+#     global num
+#     for i in range(3):
+#         num += 1
+#         time.sleep(0.5)
+#     print(f'子进程里的num:{num}')
+# if __name__ == '__main__':
+#     print(f'num的初始值是:{num}')
+#     p1 = Process(target = change_num)
+#     p1.start()
+#     p1.join()
+#     print(f'子进程结束后的num:{num}')
+# 4：Queue队列基础使用
+# q = Queue(4)
+# q.put(10)
+# q.put(20)
+# q.put(30)
+# q.put(40)
+# print(q.full(),q.qsize())
+# while not q.empty():
+#     data = q.get()
+#     print(f'取出数据：{data}')
+#     print('判断队列是否为空：',q.empty())
+# 5：综合题
+# def write(q1):
+#     for i in range(5):
+#         q1.put(i)
+#         print(f'写入{i}')
+#         time.sleep(0.5)
+# def read(q2):
+#     while not q2.empty():
+#         print('读取到的数据：',q2.get())
+# if __name__ == '__main__':
+#     q = Queue()
+#     p1 = Process(target = write,args = (q,))
+#     p2 = Process(target = read,args = (q,))
+#     p1.start()
+#     p1.join()
+#     p2.start()
+#     p2.join()

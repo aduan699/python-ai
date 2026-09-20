@@ -57,7 +57,7 @@ import re
 # res = re.match('\S',',6991')
 # print(res.group())
 
-# 2.7：\w 匹配单词字符 a-z A-Z _ 汉字都可以匹配   ----常用
+# 2.7：\w 匹配单词字符 a-z A-Z _ 汉字，数字都可以匹配   ----常用
 # res = re.match('\w','我了我了')
 # print(res.group())
 
@@ -182,3 +182,30 @@ import re
 # res = re.match(r'\\','\game')
 # print(res.group())
 # 正则表达式要匹配\字符时需要\\\\
+
+# 练习题
+# 1：提取手机号
+# li = ['张三13812345678','李四15999001122','abc123456789','1388888']
+# for i in li:
+#     res = re.search('1\d{10}',i)
+#     if res == None:
+#         print(f'{i}中没有手机号码')
+#     else:
+#         print(res.group())
+# 2：提取邮箱地址
+# res = re.findall(r'\w+@\w+\.\w{2,6}','contact me at test123@qq.com or abc_xyz@school.cn')
+# print(res)
+# 注意：\w还可以匹配下划线
+# 3：匹配简单日期
+# str = '今天2026-09-16,昨天2026-09-15,2026/9/16 2026-9-5'
+# res = re.findall(r'\d{4}-\d{2}-\d{2}',str)
+# print(res)
+# 4：去除掉文本里的<>
+# str = '<p>这是<b>加粗</b>文字</p>'
+# res = re.sub('<.*?>','',str)
+# print(res)
+# 注意：这里要用非贪婪匹配，不然会把整个字符串都吞掉
+# 5：提取文本中的http://
+# str = '访问https://www.baidu.com http://github.com'
+# res = re.findall(r'https?://\S+',str)
+# print(res)

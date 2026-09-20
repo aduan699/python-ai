@@ -1,3 +1,4 @@
+from collections.abc import Iterable,Iterator
 # 1:可迭代对象   Tterable
 # 遍历（迭代）：依次从对象中取出一个个对象的过程
 
@@ -125,3 +126,54 @@
 #        不能取上一个值，当遍历完毕后，next()会抛出异常StopIteration
 # 生成器：是一种特殊的迭代器，它是python中提供的简便的写出迭代器的一种手段
 # 包含关系：可迭代对象包含了迭代器，迭代器里面又包含了生成器
+
+# 练习题
+# 1：基础判断
+# li = [[123],'hello',123,iter([123]),(i for i in range(3))]
+# for i in li:
+#     print(f'对象：{i}')
+#     print('是否是可迭代对象：',isinstance(i,Iterable))
+#     print('是否是迭代器对象：',isinstance(i,Iterator))
+# 2：手动模拟for循环
+# li = [10,20,30,40]
+# li2 = iter(li)
+# print(next(li2))
+# print(next(li2))
+# print(next(li2))
+# print(next(li2))
+# print(next(li2))
+# 3：自定义迭代器类
+# class countdown(object):
+#     def __init__(self,n):
+#         self.n = n
+#     def __iter__(self):
+#         return self 
+#     def __next__(self):
+#         if self.n < 1:
+#             raise StopIteration('数据已经取完了，遍历结束')
+#         res = self.n
+#         self.n -= 1
+#         return res 
+# cd = countdown(5)
+# print(next(cd))
+# print(next(cd))
+# print(next(cd))
+# print(next(cd))
+# print(next(cd))
+# print(next(cd))
+# # for i in cd:
+# #     print(i)
+# 4：yield生成器函数
+# def myrange(start,end):
+#     while start < end:
+#         yield start
+#         start += 1
+# # for i in myrange(1,7):
+# #     print(i)
+# li = myrange(1,7)
+# li2 = iter(li)
+# print(next(li2))
+# print(next(li2))
+# print(next(li2))
+# print(next(li2))
+# print(next(li2))

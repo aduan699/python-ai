@@ -109,3 +109,65 @@ import gevent
 #     3：协程切换需要的资源最小，效率高
 # 4.3：多线程适合IO操作密集型操作(文件操作，网络爬虫)，多进程时候cpu密集型操作(科学计算，对视频进行高清解码)
 # 4.4：进程，线程，协程都是可以完成多任务的，可以根据自己的开发需求选择
+
+# 练习题
+# 1：greenlet手动切换协程
+# def play():
+#     print('开始玩游戏')
+#     g2.switch()
+#     print('游戏结束')
+# def read():
+#     print('开始读书')
+#     g1.switch()
+#     print('读书结束')
+# if __name__ == '__main__':
+#     g1 = greenlet(play)
+#     g2 = greenlet(read)
+#     g1.switch()
+#     g2.switch()
+# 2：gevent,spawn
+# def work(name,sec):
+#     print(f'{name}开始干活')
+#     gevent.sleep(sec)
+#     print(f'{name}干完活了')
+# if __name__ == '__main__':
+#     g1 = gevent.spawn(work,'张三',2)
+#     g2 = gevent.spawn(work,'李四',2)
+#     g1.join()
+#     g2.join()
+# 3：geven和.joinall()
+# def count(name,n):
+#     for i in range(n):
+#         gevent.sleep(1)
+#         print(f'{name}计数{i}')
+# if __name__ == '__main__':
+#     gevent.joinall([
+#         gevent.spawn(count,'甲',3),
+#         gevent.spawn(count,'乙',3)
+#     ])
+# 4：猴子补丁
+# from gevent import monkey
+# monkey.patch_all()
+# def io_task(name,delay):
+#     print(f'{name}开始')
+#     time.sleep(delay)
+#     print(f'{name}结束')
+# if __name__ == '__main__':
+#     gevent.joinall([
+#         gevent.spawn(io_task,'A',2),
+#         gevent.spawn(io_task,'B',2)
+#     ])
+# 5：综合例题
+# from gevent import monkey
+# monkey.patch_all()
+# def fetch_data(url):
+#     print(f'正在请求{url}')
+#     time.sleep(1)
+#     print(f'{url}请求完成')
+# if __name__ == '__main__':
+#     gevent.joinall([
+#         gevent.spawn(fetch_data,'url1'),
+#         gevent.spawn(fetch_data,'url2'),
+#         gevent.spawn(fetch_data,'url3'),
+#         gevent.spawn(fetch_data,'url4')
+#     ])

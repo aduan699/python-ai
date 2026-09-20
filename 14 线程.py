@@ -174,3 +174,71 @@ import time
 # 2：死锁：一直在等待对方释放锁的情景就叫做死锁
 #      死锁会造成应用程序停止响应，不能再处理其他任务
 # 3：互斥锁的缺点：会影响代码的执行效率
+
+# 练习题
+# 1：基础线程创建
+# def read(name):
+#     print(f'{name}正在看书')
+#     time.sleep(1)
+#     print('看完书了')
+# def play(name):
+#     print(f'{name}正在打游戏')
+#     time.sleep(1)
+#     print('打完游戏了')
+# if __name__ == '__main__':
+#     t1 = threading.Thread(target = read,args = ('小明',))
+#     t2 = threading.Thread(target = play,args = ('小明',))
+#     t1.setDaemon(True)
+#     t2.setDaemon(True)
+#     t1.start()
+#     t1.join()
+#     t2.start()
+#     t2.join()
+# 2：线程执行无序
+# def print_num():
+#     print('当前线程名字：',threading.current_thread().name)
+#     time.sleep(0.5)
+# if __name__ == '__main__':
+#     for i in range(6):
+#         t = threading.Thread(target = print_num)
+#         t.start()
+# 3：线程共享全局变量
+# list = []
+# def write():
+#     for i in range(5):
+#         list.append(i)
+#         time.sleep(0.3)
+#     print('写入后的列表：',list)
+# def read():
+#     print('读取到的列表：',list)
+# if __name__ == '__main__':
+#     t1 = threading.Thread(target = write)
+#     t2 = threading.Thread(target = read)
+#     t1.start()
+#     t1.join()
+#     t2.start()
+#     t2.join()
+# 4：资源竞争+互斥锁
+# from threading import Lock
+# count = 0
+# loop = 1000000
+# lock = Lock()
+# def add1():
+#     lock.acquire()
+#     global count
+#     for i in range(loop):
+#         count += 1
+#     print(count)
+#     lock.release()
+# def add2():
+#     lock.acquire()
+#     global count
+#     for i in range(loop):
+#         count += 1
+#     print(count)
+#     lock.release()
+# if __name__ == '__main__':
+#     t1 = threading.Thread(target = add1)
+#     t2 = threading.Thread(target = add2)
+#     t1.start()
+#     t2.start()
